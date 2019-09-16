@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\genne\\Desktop\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj": {}
+    "C:\\Users\\genne\\Desktop\\ASP.NET_Core_WebApi\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\genne\\Desktop\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj": {
+    "C:\\Users\\genne\\Desktop\\ASP.NET_Core_WebApi\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\genne\\Desktop\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj",
+        "projectUniqueName": "C:\\Users\\genne\\Desktop\\ASP.NET_Core_WebApi\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj",
         "projectName": "NekoMarket.API",
-        "projectPath": "C:\\Users\\genne\\Desktop\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj",
+        "projectPath": "C:\\Users\\genne\\Desktop\\ASP.NET_Core_WebApi\\NekoMarket\\NekoMarket.API\\NekoMarket.API.csproj",
         "packagesPath": "C:\\Users\\genne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\genne\\Desktop\\NekoMarket\\NekoMarket.API\\obj\\",
+        "outputPath": "C:\\Users\\genne\\Desktop\\ASP.NET_Core_WebApi\\NekoMarket\\NekoMarket.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
