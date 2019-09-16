@@ -1,0 +1,14 @@
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\bin\Debug\netcoreapp2.2\NekoMarket.API.deps.json
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\bin\Debug\netcoreapp2.2\NekoMarket.API.runtimeconfig.json
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\bin\Debug\netcoreapp2.2\NekoMarket.API.runtimeconfig.dev.json
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\bin\Debug\netcoreapp2.2\NekoMarket.API.dll
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\bin\Debug\netcoreapp2.2\NekoMarket.API.pdb
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.csprojAssemblyReference.cache
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.csproj.CoreCompileInputs.cache
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.RazorAssemblyInfo.cache
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.RazorAssemblyInfo.cs
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.AssemblyInfoInputs.cache
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.AssemblyInfo.cs
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.RazorTargetAssemblyInfo.cache
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.dll
+C:\Users\genne\Desktop\NekoMarket\NekoMarket.API\obj\Debug\netcoreapp2.2\NekoMarket.API.pdb
