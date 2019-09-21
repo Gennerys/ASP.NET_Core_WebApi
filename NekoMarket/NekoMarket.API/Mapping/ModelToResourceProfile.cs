@@ -21,7 +21,7 @@ namespace NekoMarket.API.Mapping
                 .ForMember(src => src.UnitOfMeasurement,
                 opt => opt.MapFrom(src => src.UnitOfMeasurement.ToDescriptionString()));
 
-            CreateMap<QueryResult<Product>, QueryResultResource<Product>>();
+            CreateMap<QueryResult<Product>, QueryResultResource<ProductResource>>();
         }
     }
 }
