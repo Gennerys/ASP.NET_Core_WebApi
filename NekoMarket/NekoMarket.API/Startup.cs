@@ -13,6 +13,9 @@ using NekoMarket.API.Persistence.Repositories;
 using NekoMarket.API.Services;
 using AutoMapper;
 using System;
+using System.Reflection;
+using System.IO;
+using NekoMarket.API.Controllers.Config;
 
 namespace NekoMarket.API
 {
@@ -28,7 +31,14 @@ namespace NekoMarket.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMemoryCache();
+
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .ConfigureApiBehaviorOptions(options => 
+                {
+                    options.InvalidModelStateResponseFactory = InvalidModelStateResponseFactory.ProduceErrorResponse;
+                });
 
             services.AddDbContext<AppDbContext>(options => {
                 options.UseInMemoryDatabase("nekomarket-api-in-memory");

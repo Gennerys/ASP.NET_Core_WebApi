@@ -6,6 +6,8 @@ using NekoMarket.API.Domain.Models;
 using NekoMarket.API.Domain.Services;
 using NekoMarket.API.Domain.Repositories;
 using NekoMarket.API.Domain.Services.Communication;
+using Microsoft.Extensions.Caching.Memory;
+using NekoMarket.API.Infrastructure;
 
 namespace NekoMarket.API.Services
 {
@@ -13,15 +15,26 @@ namespace NekoMarket.API.Services
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMemoryCache _cache;
 
-        public CategoryService(ICategoryRepository categoryRepository, IUnitOfWork unitOfWork)
+        public CategoryService(ICategoryRepository categoryRepository, IUnitOfWork unitOfWork, IMemoryCache cache)
         {
-            this._categoryRepository = categoryRepository;
-            this._unitOfWork = unitOfWork;
+            _categoryRepository = categoryRepository;
+            _unitOfWork = unitOfWork;
+            _cache = cache;
         }
         public async Task<IEnumerable<Category>> ListAsync()
         {
-            return await _categoryRepository.ListAsync();
+            // Here I try to get the categories list from the memory cache. If there is no data in cache, the anonymous method will be
+            // called, setting the cache to expire one minute ahead and returning the Task that lists the categories from the repository.
+
+            var categories = await _cache.GetOrCreateAsync(CacheKeys.CategoriesList, (entry) =>
+            {
+                 entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
+                 return _categoryRepository.ListAsync();
+            });
+
+            return categories;
         }
 
         public async Task<CategoryResponse> SaveAsync(Category category)

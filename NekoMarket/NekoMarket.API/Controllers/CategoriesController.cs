@@ -13,6 +13,8 @@ using NekoMarket.API.Extensions;
 namespace NekoMarket.API.Controllers
 {
     [Route("/api/[controller]")]
+    [Produces("application/json")]
+    [ApiController]
     public class CategoriesController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -25,6 +27,7 @@ namespace NekoMarket.API.Controllers
         }
         
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<CategoryResource>), 200)]
         public async Task<IEnumerable<CategoryResource>> GetAllAsync()
         {
             var categories = await _categoryService.ListAsync();
@@ -34,6 +37,8 @@ namespace NekoMarket.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(CategoryResource), 201)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
         {
             if (!ModelState.IsValid)
@@ -45,47 +50,47 @@ namespace NekoMarket.API.Controllers
 
             if (!result.Success)
             {
-                return BadRequest(result.Message);
+                return BadRequest(new ErrorResource(result.Message));
             }
 
-            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
+            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Resource);
 
             return Ok(categoryResource);
 
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(CategoryResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveCategoryResource resource)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
 
             var category = _mapper.Map<SaveCategoryResource, Category>(resource);
             var result = await _categoryService.UpdateAsync(id, category);
 
             if (!result.Success)
             {
-                return BadRequest(result.Message);
+                return BadRequest(new ErrorResource(result.Message));
             }
 
-            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
+            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Resource);
 
             return Ok(categoryResource);
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(CategoryResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await _categoryService.DeleteAsync(id);
 
             if (!result.Success)
             {
-                return BadRequest(result.Message);
+                return BadRequest(new ErrorResource(result.Message));
             }
 
-            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
+            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Resource);
 
             return Ok(categoryResource);
         }

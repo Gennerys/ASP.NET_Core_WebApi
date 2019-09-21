@@ -6,6 +6,7 @@ using AutoMapper;
 using NekoMarket.API.Domain.Models;
 using NekoMarket.API.Resources;
 using NekoMarket.API.Extensions;
+using NekoMarket.API.Domain.Models.Queries;
 
 
 namespace NekoMarket.API.Mapping
@@ -15,9 +16,12 @@ namespace NekoMarket.API.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<Category, CategoryResource>();
+
             CreateMap<Product, ProductResource>()
                 .ForMember(src => src.UnitOfMeasurement,
                 opt => opt.MapFrom(src => src.UnitOfMeasurement.ToDescriptionString()));
+
+            CreateMap<QueryResult<Product>, QueryResultResource<Product>>();
         }
     }
 }
